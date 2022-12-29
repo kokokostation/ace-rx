@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import AppBar from 'material-ui/AppBar';
 import IconButton from 'material-ui/IconButton';
+import FontIcon from 'material-ui/FontIcon';
 import { fullWhite } from 'material-ui/styles/colors';
 import { Component as HeaderMenu } from '../HeaderMenu';
 import { formatDate } from '../../utils';
@@ -14,34 +15,34 @@ export default class RightHeader extends Component {
 
     return (
       <AppBar
-        className='right-header'
+        className="right-header"
         title={null}
         iconElementLeft={
           <IconButton
-            className='playlist-mode-switch'
-            iconClassName='material-icons'
-            onTouchTap={this.props.togglePlaylistMode}
-          >queue_music</IconButton>
+            className="playlist-mode-switch"
+            iconClassName="material-icons"
+            tooltip="Плейлист"
+            onTouchTap={this.props.togglePlaylistMode}>
+            queue_music
+          </IconButton>
         }
         iconElementRight={
-          <div>
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <IconButton iconStyle={{ color: fullWhite }} href="https://t.me/tuzach" tooltip="Telegram" target='_blank'>
+              <FontIcon className="fa fa-brands fa-telegram" />
+            </IconButton>
             <IconButton
-              iconClassName='material-icons'
+              iconClassName="material-icons"
               iconStyle={{ color: fullWhite }}
-              onTouchTap={this.props.openSettings}
-            >settings</IconButton>
+              tooltip="Настройки"
+              onTouchTap={this.props.openSettings}>
+              settings
+            </IconButton>
             <HeaderMenu ignoreClear={this.props.ignoreClear} />
           </div>
-        }
-      >
-        <div className='topic'>{logDate ? formatDate(logDate) : topic}</div>
-        {
-          !logDate && (
-            <div className='online'>
-              Онлайн: {online}
-            </div>
-          )
-        }
+        }>
+        <div className="topic">{logDate ? formatDate(logDate) : topic}</div>
+        {!logDate && <div className="online">Онлайн: {online}</div>}
       </AppBar>
     );
   }
@@ -53,5 +54,5 @@ RightHeader.propTypes = {
   togglePlaylistMode: PropTypes.func.isRequired,
   ignoreClear: PropTypes.func.isRequired,
   openSettings: PropTypes.func.isRequired,
-  logDate: PropTypes.instanceOf(Date)
+  logDate: PropTypes.instanceOf(Date),
 };

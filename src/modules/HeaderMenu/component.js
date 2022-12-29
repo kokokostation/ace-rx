@@ -16,15 +16,15 @@ export default function HeaderMenu(props) {
   return (
     <IconMenu
       iconButtonElement={
-        <IconButton iconClassName='material-icons'>more_vert</IconButton>
+        <IconButton iconClassName='material-icons' tooltip="Еще">more_vert</IconButton>
       }
       anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
       targetOrigin={{ horizontal: 'right', vertical: 'top' }}
       style={{ zIndex: 1 }}
       iconStyle={{ color: fullWhite }}
     >
-      <MenuItem leftIcon={<FontIcon className='fa fa-question-circle' />} primaryText='FAQ' />
-      <MenuItem leftIcon={<FontIcon className='fa fa-info-circle' />} primaryText='О проекте' />
+      {/* <MenuItem leftIcon={<FontIcon className='fa fa-question-circle' />} primaryText='FAQ' /> */}
+      {/* <MenuItem leftIcon={<FontIcon className='fa fa-info-circle' />} primaryText='О проекте' /> */}
       <MenuItem
         leftIcon={<FontIcon className='fa fa-history' />}
         onTouchTap={() => emitter.emit('openLogPicker')}
@@ -43,12 +43,12 @@ export default function HeaderMenu(props) {
         target='_blank'
         primaryText='Исходники'
       />
-      <MenuItem
+      {/* <MenuItem
         leftIcon={<FontIcon className='fa fa-vk' />}
         href='https://vk.com/tuzach_in'
         target='_blank'
         primaryText='Паблик VK'
-      />
+      /> */}
       <Divider />
       <MenuItem
         leftIcon={<FontIcon className='material-icons'>clear_all</FontIcon>}
