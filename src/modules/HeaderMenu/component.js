@@ -55,6 +55,11 @@ export default function HeaderMenu(props) {
         primaryText='Очистить игнор-лист'
         onTouchTap={props.ignoreClear}
       />
+      {props.settings.personalChatEnabled && <MenuItem
+        leftIcon={<FontIcon className='fa fa-hand-stop-o' />}
+        primaryText='Очистить мой чат'
+        onTouchTap={props.whitelistClear}
+      />}
       <Divider />
       <MenuItem
         primaryText='Версия'
@@ -65,5 +70,7 @@ export default function HeaderMenu(props) {
 }
 
 HeaderMenu.propTypes = {
-  ignoreClear: PropTypes.func.isRequired
+  ignoreClear: PropTypes.func.isRequired,
+  whitelistClear: PropTypes.func.isRequired,
+  settings: PropTypes.object.isRequired
 };

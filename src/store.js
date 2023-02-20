@@ -3,7 +3,7 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 import { createLogger } from 'redux-logger';
-import { reducer as chat } from './modules/Chat';
+import { reducer as chatContainer } from './modules/ChatContainer';
 import { reducer as playlist } from './modules/Playlist';
 import { reducer as postarea } from './modules/PostArea';
 import { reducer as snackbar } from './modules/Snackbar';
@@ -15,7 +15,7 @@ import { reducer as lightbox } from './modules/Lightbox';
 import { reducer as settings } from './modules/Settings';
 
 const rootReducer = combineReducers({
-  chat,
+  chatContainer,
   playlist,
   postarea,
   snackbar,

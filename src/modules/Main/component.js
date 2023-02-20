@@ -8,7 +8,7 @@ import themes from '../../themes';
 import { Component as LeftHeader } from '../LeftHeader';
 import { Container as RightHeader } from '../RightHeader';
 import { Container as Playlist } from '../Playlist';
-import { Container as Chat } from '../Chat';
+import { Container as ChatContainer } from '../ChatContainer';
 import { Container as Player } from '../Player';
 import { Container as PostArea } from '../PostArea';
 import { Container as Snackbar } from '../Snackbar';
@@ -68,7 +68,7 @@ export default class Main extends Component {
 
           <div className='right'>
             <RightHeader togglePlaylistMode={() => this.togglePlaylistMode()} />
-            <Chat />
+            <ChatContainer />
             <PostArea theme={this.state.theme} />
           </div>
           <Snackbar />

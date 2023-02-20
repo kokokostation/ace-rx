@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import DatePickerDialog from 'material-ui/Datepicker/DatePickerDialog';
+import DatePickerDialog from 'material-ui/DatePicker/DatePickerDialog';
 import emitter from '../../emitter';
 
 export default class LogPicker extends Component {

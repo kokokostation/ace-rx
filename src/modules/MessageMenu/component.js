@@ -69,6 +69,16 @@ export default function MessageMenu(props) {
           }}
           onTouchTap={() => emitter.emit('reply', `!#${props.messageId}`)}
         />
+        {props.whitelistAdd && <MenuItem
+          primaryText='В мой чат'
+          leftIcon={<FontIcon className='fa fa-handshake-o' />}
+          onTouchTap={() => props.whitelistAdd(props.messageId)}
+        />}
+        {props.whitelistRemove && <MenuItem
+          primaryText='Из моего чата'
+          leftIcon={<FontIcon className='fa fa-hand-o-right' />}
+          onTouchTap={() => props.whitelistRemove(props.messageId)}
+        />}
       </Menu>
       {controls}
     </Popover>
@@ -82,5 +92,7 @@ MessageMenu.propTypes = {
   controls: PropTypes.bool,
   messageId: PropTypes.string.isRequired,
   control: PropTypes.func,
-  ignoreAdd: PropTypes.func
+  ignoreAdd: PropTypes.func,
+  whitelistAdd: PropTypes.func,
+  whitelistRemove: PropTypes.func
 };

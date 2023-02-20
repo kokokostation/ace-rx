@@ -7,7 +7,7 @@ import {
 
 export function showPreview(id) {
   return (dispatch, getState) => {
-    const message = getState().chat.messages.find(msg => msg.id === id);
+    const message = getState().chatContainer.messages.find(msg => msg.id === id);
     dispatch({
       type: SHOW_PREVIEW,
       data: message

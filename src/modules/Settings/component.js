@@ -52,6 +52,14 @@ export default function Settings(props, context) {
         }}
       />
 
+      <Toggle
+        label='Мой чат'
+        toggled={props.personalChatEnabled}
+        onToggle={(event, isToggled) => {
+          props.set('personalChatEnabled', isToggled);
+        }}
+      />
+
       <Divider style={dividerStyle} />
 
       <RadioButtonGroup
@@ -111,7 +119,8 @@ Settings.propTypes = {
   postingMode: PropTypes.string.isRequired,
   showImages: PropTypes.bool.isRequired,
   showYoutube: PropTypes.bool.isRequired,
-  showWebm: PropTypes.bool.isRequired
+  showWebm: PropTypes.bool.isRequired,
+  personalChatEnabled: PropTypes.bool.isRequired
 };
 
 Settings.contextTypes = {

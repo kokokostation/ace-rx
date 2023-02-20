@@ -30,7 +30,11 @@ export default class RightHeader extends Component {
               iconStyle={{ color: fullWhite }}
               onTouchTap={this.props.openSettings}
             >settings</IconButton>
-            <HeaderMenu ignoreClear={this.props.ignoreClear} />
+            <HeaderMenu
+              ignoreClear={this.props.ignoreClear}
+              whitelistClear={this.props.whitelistClear}
+              settings={this.props.settings}
+            />
           </div>
         }
       >
@@ -52,6 +56,8 @@ RightHeader.propTypes = {
   online: PropTypes.string.isRequired,
   togglePlaylistMode: PropTypes.func.isRequired,
   ignoreClear: PropTypes.func.isRequired,
+  whitelistClear: PropTypes.func.isRequired,
   openSettings: PropTypes.func.isRequired,
-  logDate: PropTypes.instanceOf(Date)
+  logDate: PropTypes.instanceOf(Date),
+  settings: PropTypes.object.isRequired
 };

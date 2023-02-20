@@ -13,7 +13,8 @@ const initialState = {
   postingMode: null,
   showImages: true,
   showYoutube: true,
-  showWebm: true
+  showWebm: true,
+  personalChatEnabled: false
 };
 
 export default function (state = initialState, action) {

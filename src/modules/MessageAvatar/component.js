@@ -47,6 +47,8 @@ export default class MessageAvatar extends Component {
           messageId={id}
           control={this.props.control}
           ignoreAdd={this.props.ignoreAdd}
+          whitelistAdd={this.props.whitelistAdd}
+          whitelistRemove={this.props.whitelistRemove}
         />
       </div>
     );
@@ -57,5 +59,7 @@ MessageAvatar.propTypes = {
   message: PropTypes.object.isRequired,
   logMode: PropTypes.bool,
   control: PropTypes.func,
-  ignoreAdd: PropTypes.func
+  ignoreAdd: PropTypes.func,
+  whitelistAdd: PropTypes.func,
+  whitelistRemove: PropTypes.func
 };

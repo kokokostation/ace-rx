@@ -2,18 +2,18 @@
 
 import { connect } from 'react-redux';
 import Component from './component';
-import { actions as chat } from '../Chat';
+import { actions as chatContainer } from '../ChatContainer';
 
 function mapStateToProps(state) {
   return Object.assign({}, state.postarea, {
     settings: state.settings,
-    logMode: Boolean(state.chat.logDate)
+    logMode: Boolean(state.chatContainer.logDate)
   });
 }
 
 const actions = {
-  send: chat.send,
-  exitLog: chat.exitLog
+  send: chatContainer.send,
+  exitLog: chatContainer.exitLog
 };
 
 export default connect(mapStateToProps, actions)(Component);
