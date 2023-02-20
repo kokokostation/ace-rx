@@ -17,14 +17,15 @@ module.exports = {
   output: {
     path: dir_build,
     filename: 'bundle.dev.js',
-    publicPath: 'http://localhost:8080/'
+    publicPath: 'http://localhost:3000/'
   },
   resolve: {
     modules: ['node_modules', dir_js],
   },
   devServer: {
     contentBase: dir_build,
-    inline: true
+    inline: true,
+    port: 3000
   },
   devtool: 'source-map',
   stats: {

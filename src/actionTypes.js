@@ -20,7 +20,6 @@ export const SET_ONLINE_COUNTER = 'SET_ONLINE_COUNTER';
 export const IGNORE_ADD = 'IGNORE_ADD';
 export const IGNORE_CLEAR = 'IGNORE_CLEAR';
 export const IGNORE_LOAD = 'IGNORE_LOAD';
-export const IMAGEFEED_ADD = 'IMAGEFEED_ADD';
 export const LOAD_TOPIC = 'LOAD_TOPIC';
 export const AVATAR_LOAD = 'AVATAR_LOAD';
 export const AVATAR_SET_UPLOADING = 'AVATAR_SET_UPLOADING';

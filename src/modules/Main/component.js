@@ -12,8 +12,6 @@ import { Container as ChatContainer } from '../ChatContainer';
 import { Container as Player } from '../Player';
 import { Container as PostArea } from '../PostArea';
 import { Container as Snackbar } from '../Snackbar';
-import { Component as SidebarMenu } from '../SidebarMenu';
-import { Container as ImageFeed } from '../ImageFeed';
 import { Container as Lightbox } from '../Lightbox';
 import { Container as Settings } from '../Settings';
 import { Container as LogPicker } from '../LogPicker';
@@ -61,9 +59,6 @@ export default class Main extends Component {
             <Player theme={this.state.theme} />
 
             {this.state.sidebarContent === 0 ? <Playlist theme={this.state.theme} /> : null}
-            {this.state.sidebarContent === 1 ? <ImageFeed /> : null}
-
-            <SidebarMenu selected={this.state.sidebarContent} select={this.setSidebarContent.bind(this)} />
           </div>
 
           <div className='right'>
