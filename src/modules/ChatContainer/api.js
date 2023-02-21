@@ -1,9 +1,9 @@
 'use strict';
 
-import { CHAT_ENDPOINT, CONTROL_ENDPOINT, LOG_ENDPOINT } from '../../config';
+import { CHAT_READ_ENDPOINT, CHAT_WRITE_ENDPOINT, CONTROL_ENDPOINT, LOG_ENDPOINT } from '../../config';
 
 export function load(lastMessageId) {
-  return fetch(`${CHAT_ENDPOINT}&last=${lastMessageId}`, {
+  return fetch(`${CHAT_READ_ENDPOINT}&last=${lastMessageId}`, {
     credentials: 'include'
   })
     .then(response => {
@@ -21,7 +21,7 @@ export function post(message, file) {
     formdata.append('filedata', file);
   }
 
-  return fetch(`${CHAT_ENDPOINT}&act=post`, {
+  return fetch(`${CHAT_WRITE_ENDPOINT}&act=post`, {
     method: 'POST',
     body: formdata,
     credentials: 'include'
