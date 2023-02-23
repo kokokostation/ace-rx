@@ -1,6 +1,7 @@
 'use strict';
 
 export const CHAT_ENDPOINT = 'https://tuzach.in/api/?app=chat';
+export const V1_MESSAGE_LIST_ENDPOINT = 'https://tuzach.net/ace-api/v1/message/list';
 export const MEMEFEED_ENDPOINT = 'wss://memes-ace3.rhcloud.com:8443';
 // export const MEMEFEED_ENDPOINT = 'ws://localhost:3000';
 export const PLAYLIST_ENDPOINT = 'https://tuzach.in/api/?app=playlist';

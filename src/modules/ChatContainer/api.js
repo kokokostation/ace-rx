@@ -1,9 +1,9 @@
 'use strict';
 
-import { CHAT_ENDPOINT, CONTROL_ENDPOINT, LOG_ENDPOINT } from '../../config';
+import { CHAT_ENDPOINT, V1_MESSAGE_LIST_ENDPOINT, CONTROL_ENDPOINT, LOG_ENDPOINT } from '../../config';
 
 export function load(lastMessageId) {
-  return fetch(`${CHAT_ENDPOINT}&last=${lastMessageId}`, {
+  return fetch(`${V1_MESSAGE_LIST_ENDPOINT}?last=${lastMessageId}`, {
     credentials: 'include'
   })
     .then(response => {
