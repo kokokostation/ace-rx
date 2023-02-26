@@ -2,8 +2,14 @@
 
 import { CHAT_ENDPOINT, V1_MESSAGE_LIST_ENDPOINT, CONTROL_ENDPOINT, LOG_ENDPOINT } from '../../config';
 
-export function load(lastMessageId) {
-  return fetch(`${V1_MESSAGE_LIST_ENDPOINT}?last=${lastMessageId}`, {
+export function load(lastMessageId, forceSync) {
+  const url = new URL(V1_MESSAGE_LIST_ENDPOINT);
+  url.searchParams.append('last', lastMessageId);
+  if (forceSync) {
+    url.searchParams.append('force_sync', '1');
+  }
+
+  return fetch(url, {
     credentials: 'include'
   })
     .then(response => {

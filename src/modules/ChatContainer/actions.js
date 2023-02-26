@@ -21,11 +21,11 @@ import {
 
 import * as api from './api';
 
-export function update() {
+export function update(forceSync = false) {
   return (dispatch, getState) => {
     const lastMessageId = getState().chatContainer.lastMessageId;
 
-    return api.load(lastMessageId)
+    return api.load(lastMessageId, forceSync)
       .then(data => {
         const { data: messages } = data;
 
@@ -77,34 +77,12 @@ export function send(message, file) {
     }
 
     api.post(message, file)
-      .then(response => {
-        if (response) {
-          let alert;
-          try {
-            const json = JSON.parse(response);
-            alert = json.msg;
-          } catch (e) {
-            alert = response;
-          }
-
-          dispatch({
-            type: SNACKBAR_OPEN,
-            data: alert
-          });
-        }
-
-        dispatch(update());
+      .finally(() => {
+        dispatch(update(true));
 
         if (file) {
           dispatch({ type: POSTAREA_SET_UPLOADING, data: false });
         }
-      })
-      .catch(err => {
-        console.error(err);
-        dispatch({
-          type: SNACKBAR_OPEN,
-          data: 'Проблемы с соединением'
-        });
       });
   };
 }
