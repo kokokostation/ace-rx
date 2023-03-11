@@ -26,8 +26,8 @@ export function load(lastMessageId, forceSync) {
     });
 }
 
-export async function post(message, file) {
-  await fetch(V1_MESSAGE_ENDPOINT, {
+export function post(message, file) {
+  fetch(V1_MESSAGE_ENDPOINT, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
