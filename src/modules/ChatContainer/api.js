@@ -1,6 +1,12 @@
 'use strict';
 
-import { CHAT_ENDPOINT, V1_MESSAGE_LIST_ENDPOINT, CONTROL_ENDPOINT, LOG_ENDPOINT } from '../../config';
+import {
+  CHAT_ENDPOINT,
+  CONTROL_ENDPOINT,
+  LOG_ENDPOINT,
+  V1_MESSAGE_ENDPOINT,
+  V1_MESSAGE_LIST_ENDPOINT
+} from '../../config';
 
 export function load(lastMessageId, forceSync) {
   const url = new URL(V1_MESSAGE_LIST_ENDPOINT);
@@ -20,7 +26,18 @@ export function load(lastMessageId, forceSync) {
     });
 }
 
-export function post(message, file) {
+export async function post(message, file) {
+  await fetch(V1_MESSAGE_ENDPOINT, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      text: message
+    }),
+    credentials: 'include'
+  });
+
   const formdata = new FormData();
   formdata.append('text', encodeURIComponent(message));
   if (file) {

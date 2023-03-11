@@ -26,11 +26,8 @@ store.dispatch(chatContainer.ignoreLoad());
 store.dispatch(chatContainer.whitelistLoad());
 store.dispatch(chatContainer.start());
 store.dispatch(playlist.start());
-if (localStorage.avatar) {
-  store.dispatch(avatar.set(localStorage.avatar));
-} else {
-  store.dispatch(avatar.load());
-}
+store.dispatch(avatar.load());
+setInterval(() => store.dispatch(avatar.load()), 60000);
 store.dispatch(settings.load());
 
 render(

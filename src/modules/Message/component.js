@@ -123,9 +123,8 @@ export default class Message extends Component {
 
     let whitelistAdd;
     let whitelistRemove;
-    // TODO: uncomment myUserId stuff
-    if (this.props.settings.personalChatEnabled /* && this.props.myUserId */ && this.props.whitelist) {
-      if (/* this.props.myUserId !== userId && */ !this.props.whitelist.includes(userId)) {
+    if (this.props.settings.personalChatEnabled && this.props.myUserId && this.props.whitelist) {
+      if (this.props.myUserId !== userId && !this.props.whitelist.includes(userId)) {
         whitelistAdd = this.props.whitelistAdd;
       }
 
