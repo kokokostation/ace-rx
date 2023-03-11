@@ -27,7 +27,7 @@ export function load() {
       method: 'POST',
       body: formdata,
       credentials: 'include'
-    }).finally(() => load());
+    }).then(load, load);
   });
 }
 
