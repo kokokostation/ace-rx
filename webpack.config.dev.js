@@ -39,7 +39,13 @@ module.exports = {
     new webpack.DefinePlugin({
       VERSION: JSON.stringify(require('./package.json').version + '#' + git.short())
     }),
-    new webpack.NoEmitOnErrorsPlugin()
+    new webpack.NoEmitOnErrorsPlugin(),
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify('development'),
+        'API_ROOT': JSON.stringify('http://localhost:8080'),
+      }
+    }),
   ],
   
   module: {

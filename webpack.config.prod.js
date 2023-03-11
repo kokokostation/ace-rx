@@ -37,7 +37,8 @@ module.exports = {
     }),
     new webpack.DefinePlugin({
       'process.env': {
-        'NODE_ENV': JSON.stringify('production')
+        'NODE_ENV': JSON.stringify('production'),
+        'API_ROOT': JSON.stringify('https://tuzach.net/ace-api'),
       },
       VERSION: JSON.stringify(require('./package.json').version + '#' + git.short())
     }),
