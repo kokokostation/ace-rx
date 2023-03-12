@@ -38,7 +38,7 @@ export function update(forceSync = false) {
 
         dispatch({
           type: SET_ONLINE_COUNTER,
-          data: data.user_cnt
+          data: data.user_count
         });
       })
       .catch(console.error);
