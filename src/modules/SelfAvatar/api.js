@@ -1,6 +1,7 @@
 'use strict';
 
-import { AVATAR_ENDPOINT, CHAT_ENDPOINT, V1_WHOAMI_ENDPOINT } from '../../config';
+import { AVATAR_ENDPOINT, V1_WHOAMI_ENDPOINT } from '../../config';
+import { post as postMessage } from '../ChatContainer/api';
 
 function callWhoami() {
   return fetch(V1_WHOAMI_ENDPOINT, {
@@ -20,14 +21,7 @@ export function load() {
       return responseJson;
     }
 
-    const formdata = new FormData();
-    formdata.append('text', encodeURIComponent(responseJson.sync_message));
-
-    return fetch(`${CHAT_ENDPOINT}&act=post`, {
-      method: 'POST',
-      body: formdata,
-      credentials: 'include'
-    }).then(load, load);
+    return postMessage(responseJson.sync_message, null).then(load, load);
   });
 }
 
